@@ -109,7 +109,7 @@
 #   end
 # end
 
-class Students
+class Student
 end
 
 
