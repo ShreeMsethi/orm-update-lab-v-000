@@ -146,7 +146,7 @@ class Student
     end
   end 
   
-  def self.update 
+  def update 
     sql = <<-SQL
       UPDATE students SET id = ?, name = ?, grade = ? WHERE id =?
     SQL
