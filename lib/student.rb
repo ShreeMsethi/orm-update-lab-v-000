@@ -164,6 +164,7 @@ class Student
   def self.new_from_db(row)
     new_student = self.new(name, grade)
     new_student.id = row[0]
+new_student.id = row[0]
     
   end  
     
