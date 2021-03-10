@@ -169,6 +169,16 @@ class Student
     student = self.new(name, grade)
     student.id = id
     student
+  end
+  
+  def self.find_by_name(name)
+    sql = <<-SQL
+      SELECT * FROM students WHERE name = ?
+      LIMIT 1
+    SQL
+      DB[:conn].execute(sql, self.name).map do|row|
+      self.new_from_db(name)
+    end
   end  
     
 end
