@@ -153,7 +153,15 @@ class Student
     SQL
     
     DB[:conn].execute(sql, self.name, self.grade, self.id)
-  end  
+  end 
+  
+  def self.create(row)
+    new_student = self.new(name, grade)
+    
+    new_student = row[0]
+    new_student = row[1]
+    new_student = row[2]
+    new_student
 end
 
 
