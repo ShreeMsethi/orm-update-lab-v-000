@@ -27,13 +27,13 @@
   
 # # ___________________________________________________
  
-  def self.drop_table
-    sql = <<-SQL
-    DROP TABLE students
-    SQL
+  # def self.drop_table
+  #   sql = <<-SQL
+  #   DROP TABLE students
+  #   SQL
     
-    DB[:conn].execute(sql)
-  end
+  #   DB[:conn].execute(sql)
+  # end
   
 #   # ___________________________________________________
   
@@ -126,25 +126,25 @@ class Student
     DB[:conn].execute(sql)
   end 
   
-#   def self.drop_table
-#     sql = <<-SQL
-#       DROP TABLE IF EXISTS students
-#     SQL
-#     DB[:conn].execute(sql)
-#   end  
+  def self.drop_table
+    sql = <<-SQL
+      DROP TABLE IF EXISTS students
+    SQL
+    DB[:conn].execute(sql)
+  end  
   
-#   def save
-#     if self.id 
-#       self.update
-#     else
-#     sql = <<-SQL
-#       INSERT INTO students (name, grade)
-#       VALUES (?, ?)
-#       SQL
-#       DB[:conn].execute(sql, self.name, self.grade)
-#       @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
-#     end
-#   end 
+  def save
+    if self.id 
+      self.update
+    else
+    sql = <<-SQL
+      INSERT INTO students (name, grade)
+      VALUES (?, ?)
+      SQL
+      DB[:conn].execute(sql, self.name, self.grade)
+      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
+    end
+  end 
   
 #   def update 
 #     sql = <<-SQL
